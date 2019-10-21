@@ -45,14 +45,30 @@ Create two computers object from your factory function and save them in one arra
 Note: please write one or two lines here describing your solution.
 */
 
-function makeComputer(type, color, weight) {
+//this is a factory function that takes diffrent arguments that best describe a computer and return an object out of them;
+function makeComputer(brand, cpu, ram, storage, gpu) {
   // TODO: Your code here
+  return {
+    BRAND : brand,
+    CPU : cpu,
+    RAM : ram,
+    STORAGE : storage,
+    GPU : gpu
+  }
 }
+
+// using the factory function we can create different computers an store them inside an array
+var computer1 = makeComputer("Dell", "intel i5", "8 GB", "1 TB SATA HDD", "Nvidia GTX 1050TI");
+var computer2 = makeComputer("Razer", "intel i7", "16 GB", "1 TB SSD", "Nvidia GTX 1060TI MAXQ");
+var computers = [computer1, computer2]
 
 // Write a function displayComputer that can be used to display one computer.
 
+//this is a function that return a string discribing one computer
 function displayComputer(computer) {
   // TODO: Your code here
+  return "This computer's brand is " + computer["BRAND"] + ", it has an " + computer["CPU"] + " CPU, " 
+  + computer["RAM"] + " of RAM, " + computer["STORAGE"] + " of storage and an " + computer["GPU"] + " graphics card"
 }
 
 //=============================================================================
@@ -72,8 +88,12 @@ var strArr = ['hello', 'world', 'whirled', 'peas'];
 uppercaseAll(strArr); ==> [ 'HELLO', 'WORLD', 'WHIRLED', 'PEAS' ]
 */
 
+//Using map we can create a new array with all the elements transformed to uppercase
 function uppercaseAll(arrayOfStrings) {
   // TODO: your code here
+  return map(arrayOfStrings, function(element){
+    return element.toUpperCase();
+  })
 }
 
 //=============================================================================
@@ -92,6 +112,8 @@ Note: please write one or two lines here describing your solution.
 Here’s the data you’ll work with:
 */
 
+//Using filter we can check if the population of or countrys object is over 500 million, if it is over 500 million
+//it will push it inside a new array and return it to us
 var data = [
   {
     country: 'China',
@@ -113,6 +135,9 @@ var data = [
 
 function highestPopulation(arrayOfObjects) {
   // TODO: your code here
+  return filter(arrayOfObjects, function(element){
+    return element["population"] > 500000000;
+  })
 }
 
 //=============================================================================
@@ -131,8 +156,12 @@ halveAll(numsArray); ==> [ 1, 3, 10, 4, 7 ]
 Note: please write one or two lines here describing your solution.
 */
 
+//Using map we can divide each element of our array and store the result inside a new array that is returned to us
 function halveAll(numbers) {
   // your code is here
+  return map(numbers, function(element) {
+    return element / 2;
+  })
 }
 
 //=============================================================================
@@ -147,8 +176,13 @@ values({first : 5, second: 'something' , third : 129}) ==> [5, 'something', 129]
 
 Note: please write one or two lines here describing your solution.
 */
+
+//Using map we can take the value of each element of our object and store it inside a new array that is returned to us
 function values(obj) {
   // TODO: your code here
+  return map(obj, function(element) {
+    return element;
+  })
 }
 
 //Good Luck :))
